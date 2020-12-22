@@ -13,8 +13,8 @@ export class MoviesController {
     return this.moviesService.getAll()
   }
 
-  @Get('/:id')
-  getMovie(@Param('id') id: string): Movie {
+  @Get(':id')
+  getMovie(@Param('id') id: number): Movie {
     return this.moviesService.getOne(id)
   }
 
@@ -23,13 +23,13 @@ export class MoviesController {
     return this.moviesService.create(movieData)
   }
 
-  @Delete('/:id')
-  remove(@Param('id') movieId: string) {
+  @Delete(':id')
+  remove(@Param('id') movieId: number) {
     return this.moviesService.deleteOne(movieId)
   }
 
-  @Patch('/:id')
-  patch(@Param('id') movieId: string, @Body() updateData) {
+  @Patch(':id')
+  patch(@Param('id') movieId: number, @Body() updateData: CreateMovieDto) {
     return this.moviesService.update(movieId, updateData)
   }
 }
